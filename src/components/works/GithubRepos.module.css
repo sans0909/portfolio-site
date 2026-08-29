@@ -1,0 +1,40 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-3);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1px solid var(--line-grid);
+  border-radius: var(--radius-md);
+  background: var(--bg-panel);
+  transition: border-color 0.2s var(--ease-out);
+}
+
+.card:hover {
+  border-color: var(--accent-wire);
+}
+
+.description {
+  font-size: var(--step--1);
+  flex-grow: 1;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--step--1);
+  color: var(--text-faint);
+}
+
+.empty {
+  border: 1px dashed var(--line-grid-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}

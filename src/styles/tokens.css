@@ -1,0 +1,46 @@
+/*
+  Design tokens — "viewport / editor HUD" identity.
+  Grounded in 前田健翔's actual toolset: Blender's signature orange,
+  a wireframe/edge cyan, and a dark 3D-viewport canvas.
+*/
+:root {
+  /* Color */
+  --bg-void: #10131a;
+  --bg-panel: #171b24;
+  --bg-panel-raised: #1d2230;
+  --line-grid: #262c38;
+  --line-grid-strong: #333b4a;
+  --accent-signal: #f2793b; /* Blender-orange — primary interactive accent */
+  --accent-signal-dim: #c95f28;
+  --accent-wire: #5fe1d0; /* wireframe-edge cyan — secondary accent, links, tags */
+  --text-primary: #eceff3;
+  --text-muted: #7c8494;
+  --text-faint: #4d5464;
+  --danger: #ef5b5b;
+  --success: #5fe1a0;
+
+  /* Type */
+  --font-display: "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Scale */
+  --step--1: clamp(0.78rem, 0.75rem + 0.15vw, 0.86rem);
+  --step-0: clamp(0.95rem, 0.92rem + 0.2vw, 1.05rem);
+  --step-1: clamp(1.15rem, 1.1rem + 0.35vw, 1.35rem);
+  --step-2: clamp(1.5rem, 1.35rem + 0.7vw, 1.9rem);
+  --step-3: clamp(2rem, 1.7rem + 1.4vw, 2.9rem);
+  --step-4: clamp(2.6rem, 2.1rem + 2.4vw, 4.2rem);
+
+  /* Layout */
+  --container-w: 1120px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.4rem;
+  --space-4: 2.2rem;
+  --space-5: 3.6rem;
+  --space-6: 5.6rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

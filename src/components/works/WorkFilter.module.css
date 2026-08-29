@@ -1,0 +1,31 @@
+.filter {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  padding: 0.5em 1em;
+  border: 1px solid var(--line-grid-strong);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    color 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out),
+    background 0.2s var(--ease-out);
+}
+
+.btn:hover {
+  color: var(--text-primary);
+}
+
+.active {
+  color: var(--bg-void);
+  background: var(--accent-wire);
+  border-color: var(--accent-wire);
+}

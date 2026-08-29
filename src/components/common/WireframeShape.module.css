@@ -1,0 +1,21 @@
+.shape {
+  display: block;
+  overflow: visible;
+}
+
+.rotor {
+  transform-origin: 100px 100px;
+  animation: drift 14s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: rotate(-5deg) scale(1);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(-5deg) scale(1);
+  }
+}

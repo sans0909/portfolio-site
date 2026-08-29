@@ -1,0 +1,42 @@
+import type { GithubApiRepo, GithubRepo } from "../types/github";
+
+const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_USERNAME as string | undefined;
+
+function mapRepo(repo: GithubApiRepo): GithubRepo {
+  return {
+    id: repo.id,
+    name: repo.name,
+    htmlUrl: repo.html_url,
+    description: repo.description,
+    language: repo.language,
+    stars: repo.stargazers_count,
+    topics: repo.topics ?? [],
+    updatedAt: repo.updated_at,
+    isFork: repo.fork,
+  };
+}
+
+/**
+ * Fetches public, non-fork repositories for VITE_GITHUB_USERNAME via the
+ * public GitHub REST API (no auth token needed, subject to the ~60
+ * requests/hour unauthenticated rate limit).
+ */
+export async function fetchGithubRepos(): Promise<GithubRepo[]> {
+  if (!GITHUB_USERNAME) {
+    throw new Error("VITE_GITHUB_USERNAME が設定されていません");
+  }
+
+  const res = await fetch(
+    `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`
+  );
+
+  if (res.status === 404) {
+    throw new Error(`GitHubユーザー "${GITHUB_USERNAME}" が見つかりませんでした`);
+  }
+  if (!res.ok) {
+    throw new Error(`GitHub APIの取得に失敗しました (status: ${res.status})`);
+  }
+
+  const json = (await res.json()) as GithubApiRepo[];
+  return json.filter((repo) => !repo.fork).map(mapRepo);
+}
