@@ -1,12 +1,15 @@
 import { Link, useParams } from "react-router-dom";
 import { LoadingSkeleton } from "../components/common/LoadingSkeleton";
 import { useBlogPosts } from "../hooks/useBlogPosts";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { formatDate } from "../utils/date";
 import styles from "./BlogDetail.module.css";
 
 export function BlogDetail() {
   const { id } = useParams<{ id: string }>();
   const { posts, loading, isFallback } = useBlogPosts();
   const post = posts.find((p) => String(p.id) === id);
+  useDocumentTitle(post?.title);
 
   if (loading) {
     return (
@@ -27,7 +30,7 @@ export function BlogDetail() {
     );
   }
 
-  const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("ja-JP") : "";
+  const date = formatDate(post.publishedAt);
 
   return (
     <article className="section container">

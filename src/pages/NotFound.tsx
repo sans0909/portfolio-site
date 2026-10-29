@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { WireframeShape } from "../components/common/WireframeShape";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import styles from "./NotFound.module.css";
 
 export function NotFound() {
+  useDocumentTitle("ページが見つかりません");
+
   return (
     <div className={`grid-canvas ${styles.wrap}`}>
       <WireframeShape size={140} />

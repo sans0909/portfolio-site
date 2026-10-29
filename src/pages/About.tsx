@@ -1,5 +1,6 @@
 import { SectionHeading } from "../components/common/SectionHeading";
 import { RevealOnScroll } from "../components/common/RevealOnScroll";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import styles from "./About.module.css";
 
 const CURRENT_PROJECTS = [
@@ -14,10 +15,12 @@ const CURRENT_PROJECTS = [
 ];
 
 export function About() {
+  useDocumentTitle("About");
+
   return (
     <section className="section container">
       <RevealOnScroll>
-        <SectionHeading eyebrow="// ABOUT" title="About" />
+        <SectionHeading eyebrow="// ABOUT" title="About" level={1} />
       </RevealOnScroll>
 
       <div className={styles.grid}>
@@ -25,12 +28,11 @@ export function About() {
           <p>
             Web開発、3Dモデリング、ゲーム開発を横断して制作する学生です。React /
             TypeScriptを中心としたコースワークでWeb制作の基礎を学びながら、Blenderでの3Dモデリングや
-            Three.jsを使ったゲーム制作にも取り組んでいます。
+            Unityを使ったゲーム制作にも取り組んでいます。
           </p>
           <p>
-            チーム開発では、FastAPI /
-            WebSocketを使ったリアルタイム同期アプリのフロントエンド実装を担当した経験もあります。個人制作では、Firebaseを使ったマルチプレイヤーRPGや、Three.jsによる3D
-            FPSゲームなど、Webとゲームの技術をまたいだ制作を行ってきました。
+            個人制作では、FastAPI /
+            WebSocketを使ったリアルタイム同期アプリや、Firebaseを使ったマルチプレイヤーRPG、UnityによるVRChat向けのゲームワールドなど、Webとゲームの技術をまたいだ制作を行ってきました。
           </p>
         </RevealOnScroll>
 

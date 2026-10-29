@@ -3,20 +3,22 @@ import { RevealOnScroll } from "../components/common/RevealOnScroll";
 import { BlogCard } from "../components/blog/BlogCard";
 import { LoadingSkeleton } from "../components/common/LoadingSkeleton";
 import { useBlogPosts } from "../hooks/useBlogPosts";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import styles from "./BlogList.module.css";
 
 export function BlogList() {
+  useDocumentTitle("Blog");
   const { posts, loading, isFallback } = useBlogPosts();
 
   return (
     <section className="section container">
       <RevealOnScroll>
-        <SectionHeading eyebrow="// BLOG" title="Blog" />
+        <SectionHeading eyebrow="// BLOG" title="Blog" level={1} />
 
         {isFallback && (
           <p className={`mono ${styles.notice}`}>
-            Strapiに接続できないため、サンプルデータを表示しています。.env の VITE_STRAPI_URL
-            を設定すると実際の記事が表示されます。
+            現在ブログ記事を取得できないため、サンプル記事を表示しています。
+            {import.meta.env.DEV && " [dev] .env の VITE_STRAPI_URL を設定すると実際の記事が表示されます。"}
           </p>
         )}
 

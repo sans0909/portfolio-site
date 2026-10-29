@@ -1,13 +1,16 @@
 import { SectionHeading } from "../components/common/SectionHeading";
 import { RevealOnScroll } from "../components/common/RevealOnScroll";
 import { skillGroups } from "../data/skills";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import styles from "./Skills.module.css";
 
 export function Skills() {
+  useDocumentTitle("Skills");
+
   return (
     <section className="section container">
       <RevealOnScroll>
-        <SectionHeading eyebrow="// SKILLS" title="Skills" />
+        <SectionHeading eyebrow="// SKILLS" title="Skills" level={1} />
       </RevealOnScroll>
 
       <div className={styles.groups}>

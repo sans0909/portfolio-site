@@ -17,7 +17,7 @@ export function Hero() {
           <h1 className={styles.title}>前田健翔</h1>
           <p className={styles.lead}>
             Web開発、3Dモデリング、ゲーム開発を横断して制作しています。React /
-            TypeScriptでのWeb制作と、BlenderやThree.jsを使った3D・ゲーム制作を並行して進めています。
+            TypeScriptでのWeb制作と、BlenderやUnityを使った3D・ゲーム制作を並行して進めています。
           </p>
           <div className={styles.actions}>
             <Link to="/works" className="btn btn-primary">

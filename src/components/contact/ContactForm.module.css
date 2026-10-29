@@ -30,7 +30,7 @@
 
 .field input:focus-visible,
 .field textarea:focus-visible {
-  outline: none;
+  /* The global focus ring (global.css) stays visible; the border just joins it. */
   border-color: var(--accent-signal);
 }
 

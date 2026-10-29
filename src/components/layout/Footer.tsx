@@ -1,10 +1,6 @@
 import styles from "./Footer.module.css";
 
-// TODO: replace with real profile links before publishing.
-const SOCIAL_LINKS = [
-  { label: "GitHub", href: "https://github.com/sans0909" },
-  { label: "X", href: "https://x.com/sarua0909" },
-];
+const SOCIAL_LINKS = [{ label: "GitHub", href: "https://github.com/sans0909" }];
 
 export function Footer() {
   return (

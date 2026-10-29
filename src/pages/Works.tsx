@@ -6,9 +6,11 @@ import { WorkFilter } from "../components/works/WorkFilter";
 import { GithubRepos } from "../components/works/GithubRepos";
 import { works } from "../data/works";
 import type { WorkCategory } from "../types/work";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import styles from "./Works.module.css";
 
 export function Works() {
+  useDocumentTitle("Works");
   const [filter, setFilter] = useState<WorkCategory | "all">("all");
 
   const filtered = useMemo(
@@ -24,6 +26,7 @@ export function Works() {
             eyebrow="// WORKS"
             title="制作物一覧"
             description="ボタンでカテゴリを絞り込めます。"
+            level={1}
           />
           <WorkFilter active={filter} onChange={setFilter} />
           <div className={styles.grid}>

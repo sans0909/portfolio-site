@@ -10,11 +10,11 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "BACKEND / INTEGRATION",
-    items: ["FastAPI", "WebSocket", "Firebase"],
+    items: ["WebSocket", "Firebase"],
   },
   {
     label: "3D / CREATIVE",
-    items: ["Blender", "Blender MCP", "Three.js", "3Dテクスチャ編集 (PIL / NumPy)"],
+    items: ["Blender", "Blender MCP", "Unity / C#", "3Dテクスチャ編集 (PIL / NumPy)"],
   },
   {
     label: "TOOLS",

@@ -120,11 +120,20 @@
     border-bottom: 1px solid var(--line-grid);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.25s var(--ease-out);
+    /* Hidden (not just collapsed) so links can't be tabbed to while closed.
+       Visibility flips after the collapse animation finishes. */
+    visibility: hidden;
+    transition:
+      max-height 0.25s var(--ease-out),
+      visibility 0s linear 0.25s;
   }
 
   .navOpen {
     max-height: 320px;
+    visibility: visible;
+    transition:
+      max-height 0.25s var(--ease-out),
+      visibility 0s;
   }
 
   .nav ul {

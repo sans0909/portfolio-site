@@ -14,8 +14,8 @@
   --accent-signal-dim: #c95f28;
   --accent-wire: #5fe1d0; /* wireframe-edge cyan — secondary accent, links, tags */
   --text-primary: #eceff3;
-  --text-muted: #7c8494;
-  --text-faint: #4d5464;
+  --text-muted: #98a0b0; /* 6.5:1 on --bg-panel */
+  --text-faint: #7d8596; /* 4.6:1 on --bg-panel (WCAG AA) */
   --danger: #ef5b5b;
   --success: #5fe1a0;
 

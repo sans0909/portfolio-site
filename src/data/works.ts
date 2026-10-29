@@ -3,19 +3,40 @@ import type { Work } from "../types/work";
 /**
  * Curated project list. This is static data, not fetched from an API —
  * these are real projects, so they're checked in as source rather than
- * pulled from a CMS. GitHub repos (the external-API requirement) are
- * fetched live and shown separately on the Works page.
+ * pulled from a CMS. GitHub repos are fetched live from the GitHub API
+ * and shown separately on the Works page.
  */
 export const works: Work[] = [
+  {
+    id: "nebura-01",
+    title: "NEBURA-01",
+    category: "game",
+    summary: "VRChatでプレイできるUnity製ゲームワールド",
+    description:
+      "Unityで個人制作しているVRChat向けのゲームワールド。企画・設計・プログラミング・ステージ制作・UI制作・デバッグまで一人で担当。プレイヤーのHP管理、敵キャラクターの移動制御（Waypoint / NavMesh）、ラウンド進行、HUD / UI、カウントダウン、オーディオ制御などを実装。",
+    tech: ["Unity", "C#", "VRChat", "NavMesh"],
+    role: "個人制作（企画・設計・実装）",
+    link: "https://github.com/sans0909/NEBURA-01",
+  },
+  {
+    id: "todo-app",
+    title: "Todo App",
+    category: "web",
+    summary: "TypeScriptで制作したTodoアプリ",
+    description: "TypeScriptを使用して制作したTodoアプリケーション。",
+    tech: ["TypeScript"],
+    link: "https://github.com/sans0909/todo-app",
+  },
   {
     id: "kanflow",
     title: "KanFlow",
     category: "web",
     summary: "リアルタイム共同編集のカンバン & ホワイトボード",
     description:
-      "2人チームでの学校プロジェクト。WebSocketによるリアルタイム同期、ドラッグ&ドロップ対応のカンバンボード、消しゴム機能付きフリーハンドホワイトボード、付箋機能をフロントエンド担当として実装。バックエンドはチームメイトがFastAPIで構築。",
+      "学校での個人制作。WebSocketによるリアルタイム同期、ドラッグ&ドロップ対応のカンバンボード、消しゴム機能付きフリーハンドホワイトボード、付箋機能を実装。バックエンドにFastAPIを使用。",
     tech: ["Vanilla JS", "FastAPI", "WebSocket"],
-    role: "フロントエンド担当（2人チーム）",
+    role: "個人制作",
+    link: "https://github.com/sans0909/kanflow",
   },
   {
     id: "limbus-realm",
@@ -25,15 +46,6 @@ export const works: Work[] = [
     description:
       "Firebase Realtime Databaseを用いたマルチプレイヤーRPG。ダンジョン探索構造、複数クラス、ボス戦、協力プレイモード、そして「絶望技」システムを実装。",
     tech: ["Firebase Realtime Database", "JavaScript"],
-  },
-  {
-    id: "backrooms-fps",
-    title: "Backrooms FPS",
-    category: "game",
-    summary: "Three.js製の3Dホラーサバイバル",
-    description:
-      "Three.jsで制作した3D FPSゲーム。プロシージャル生成される迷路構造、AI敵キャラクター、独特な雰囲気を演出するライティング・霧の演出システムを実装。",
-    tech: ["Three.js", "JavaScript"],
   },
   {
     id: "procedural-cityscape",

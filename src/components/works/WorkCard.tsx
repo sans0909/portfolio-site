@@ -19,7 +19,13 @@ export function WorkCard({ work }: { work: Work }) {
         ))}
       </div>
       {work.link && (
-        <a href={work.link} target="_blank" rel="noreferrer" className={`mono ${styles.link}`}>
+        <a
+          href={work.link}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`View ${work.title}（新しいタブで開きます）`}
+          className={`mono ${styles.link}`}
+        >
           View →
         </a>
       )}

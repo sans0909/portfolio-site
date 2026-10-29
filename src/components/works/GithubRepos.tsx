@@ -3,23 +3,36 @@ import { LoadingSkeleton } from "../common/LoadingSkeleton";
 import styles from "./GithubRepos.module.css";
 
 /**
- * External-API requirement: pulls live public repos from the GitHub
- * REST API (services/githubService.ts) and renders them directly as
- * Works content, per the assignment's own example.
+ * Pulls live public repos from the GitHub REST API
+ * (services/githubService.ts) and renders them as Works content,
+ * alongside the hand-curated list in data/works.ts.
  */
 export function GithubRepos() {
-  const { repos, loading, error } = useGithubRepos();
+  const { repos, loading, error, profileUrl } = useGithubRepos();
 
   if (loading) return <LoadingSkeleton count={3} />;
 
   if (error) {
     return (
       <div className={styles.empty}>
-        <p className="mono">{error}</p>
         <p>
-          .env の <span className="mono">VITE_GITHUB_USERNAME</span>{" "}
-          にGitHubのユーザー名を設定すると、ここに公開リポジトリが自動表示されます。
+          GitHubのリポジトリを読み込めませんでした。時間をおいて再読み込みするか、GitHubで直接ご覧ください。
         </p>
+        {profileUrl && (
+          <a
+            href={profileUrl}
+            target="_blank"
+            rel="noreferrer"
+            className={`mono ${styles.profileLink}`}
+          >
+            GitHubのプロフィールを開く →
+          </a>
+        )}
+        {import.meta.env.DEV && (
+          <p className="mono">
+            [dev] {error} — .env の VITE_GITHUB_USERNAME を確認してください
+          </p>
+        )}
       </div>
     );
   }

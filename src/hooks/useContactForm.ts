@@ -35,6 +35,8 @@ export function useContactForm() {
   function updateField<K extends keyof ContactFormData>(field: K, value: ContactFormData[K]) {
     setData((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: undefined }));
+    // Editing again means the previous result no longer applies.
+    if (status === "success" || status === "error") setStatus("idle");
   }
 
   async function submit(event: FormEvent) {
@@ -51,7 +53,12 @@ export function useContactForm() {
       setData(initialData);
     } catch (err) {
       setStatus("error");
-      setServerError(err instanceof Error ? err.message : "送信に失敗しました");
+      // Config errors (e.g. missing env vars) are for developers; visitors get a plain message.
+      setServerError(
+        import.meta.env.DEV && err instanceof Error
+          ? err.message
+          : "送信に失敗しました。時間をおいて、もう一度お試しください。"
+      );
     }
   }
 

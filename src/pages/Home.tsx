@@ -7,10 +7,12 @@ import { BlogCard } from "../components/blog/BlogCard";
 import { LoadingSkeleton } from "../components/common/LoadingSkeleton";
 import { works } from "../data/works";
 import { useBlogPosts } from "../hooks/useBlogPosts";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import styles from "./Home.module.css";
 
 export function Home() {
-  const { posts, loading } = useBlogPosts();
+  useDocumentTitle();
+  const { posts, loading, isFallback } = useBlogPosts();
   const featuredWorks = works.slice(0, 3);
   const latestPosts = posts.slice(0, 3);
 
@@ -39,6 +41,11 @@ export function Home() {
       <section className="section container">
         <RevealOnScroll>
           <SectionHeading eyebrow="// BLOG" title="最新の記事" />
+          {isFallback && (
+            <p className={`mono ${styles.notice}`}>
+              現在ブログ記事を取得できないため、サンプル記事を表示しています。
+            </p>
+          )}
           {loading ? (
             <LoadingSkeleton count={3} />
           ) : (

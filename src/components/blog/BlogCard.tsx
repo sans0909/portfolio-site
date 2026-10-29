@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import type { BlogPost } from "../../types/blog";
+import { formatDate } from "../../utils/date";
 import styles from "./BlogCard.module.css";
 
 export function BlogCard({ post }: { post: BlogPost }) {
-  const date = post.publishedAt
-    ? new Date(post.publishedAt).toLocaleDateString("ja-JP")
-    : "";
+  const date = formatDate(post.publishedAt);
 
   return (
     <Link to={`/blog/${post.id}`} className={`${styles.card} bracket-frame`}>

@@ -15,3 +15,12 @@
   margin-top: var(--space-3);
   color: var(--accent-wire);
 }
+
+.notice {
+  border: 1px dashed var(--line-grid-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import type { GithubRepo } from "../types/github";
-import { fetchGithubRepos } from "../services/githubService";
+import { fetchGithubRepos, GITHUB_PROFILE_URL } from "../services/githubService";
 
 interface UseGithubReposResult {
   repos: GithubRepo[];
   loading: boolean;
   error: string | null;
+  profileUrl: string | null;
 }
 
 export function useGithubRepos(): UseGithubReposResult {
@@ -34,5 +35,5 @@ export function useGithubRepos(): UseGithubReposResult {
     };
   }, []);
 
-  return { repos, loading, error };
+  return { repos, loading, error, profileUrl: GITHUB_PROFILE_URL };
 }
